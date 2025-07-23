@@ -4,96 +4,395 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Janani P Srinivasan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      max-width: 900px;
-      margin: auto;
-      padding: 2rem;
-      color: #333;
-      text-align: justify;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    h1 {
-      color: #2c3e50;
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .header {
+      margin-bottom: 3rem;
       text-align: left;
     }
-    .badges a {
-      margin-right: 10px;
+
+    .name {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .wave {
+      display: inline-block;
+      animation: wave 2s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(20deg); }
+      75% { transform: rotate(-10deg); }
+    }
+
+    .badges {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .badge {
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .intro {
+      font-size: 1.1rem;
+      color: #4a4a4a;
+      margin-bottom: 3rem;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-category:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .skill-category h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #2c3e50;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      background: #f1f5f9;
+      color: #475569;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 400;
+      transition: background 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      background: #e2e8f0;
+    }
+
+    .projects-section {
+      margin-top: 4rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      border: 1px solid #f1f5f9;
       text-decoration: none;
+      color: inherit;
+      display: block;
     }
-    ul {
-      padding-left: 1.5rem;
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      border-color: #3b82f6;
     }
-    section {
-      margin-bottom: 2rem;
+
+    .project-title {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .stats img {
+
+    .project-description {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-tag {
+      background: #eff6ff;
+      color: #3b82f6;
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    .external-link {
+      margin-left: auto;
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+    }
+
+    .project-card:hover .external-link {
+      opacity: 1;
+    }
+
+    .stats-section {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .stat-card img {
       max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1rem;
+      }
+      
+      .name {
+        font-size: 2rem;
+      }
+      
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>
-    👋 Hi there, I'm Janani!
-    <span class="badges">
-      <a href="mailto:jsrinivasan4020@sdsu.edu">
-        <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" alt="Email" />
-      </a>
-      <a href="https://www.linkedin.com/in/janani-priyadharshini-srinivasan-ba26751ab/" target="_blank">
-        <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
-      </a>
-    </span>
-  </h1>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <h1 class="name">
+        <span class="wave">👋</span> Hi there, I'm Janani!
+      </h1>
+      <div class="badges">
+        <a href="mailto:jsrinivasan4020@sdsu.edu" class="badge">
+          <img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white" alt="Email" />
+        </a>
+        <a href="https://www.linkedin.com/in/janani-priyadharshini-srinivasan-ba26751ab/" target="_blank" class="badge">
+          <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn" />
+        </a>
+      </div>
+      <p class="intro">
+        <strong>Graduate student in Computer Engineering</strong> with expertise in SoC and ASIC design for high-performance machine learning acceleration. Strong focus on RTL development, RISC-based processor architectures for SoC integration, and performance-optimized hardware implementations.
+      </p>
+    </header>
 
-  <p><strong>Graduate student in Computer Engineering</strong> with expertise in SoC and ASIC design </br> for high-performance machine learning acceleration. </br> Strong focus on RTL development, RISC-based processor architectures for SoC integration, and performance-optimized hardware implementations.</p>
+    <!-- Interests & Skills Grid -->
+    <section class="section">
+      <h2 class="section-title">💡 Expertise & Interests</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Core Interests</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">Hardware-Software Co-Design</li>
+            <li class="skill-tag">Low-Power ASIC Design</li>
+            <li class="skill-tag">SoC Design for ML Workloads</li>
+            <li class="skill-tag">Processor Microarchitecture</li>
+            <li class="skill-tag">ISA Design</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>RTL & Verification</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">Verilog/SystemVerilog</li>
+            <li class="skill-tag">Static Verification</li>
+            <li class="skill-tag">Functional Verification</li>
+            <li class="skill-tag">Formal Verification</li>
+            <li class="skill-tag">Logic Synthesis</li>
+            <li class="skill-tag">Static Timing Analysis</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Tools & Languages</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">C/C++</li>
+            <li class="skill-tag">Python</li>
+            <li class="skill-tag">MATLAB</li>
+            <li class="skill-tag">Cadence Suite</li>
+            <li class="skill-tag">Synopsys Tools</li>
+            <li class="skill-tag">ModelSim</li>
+            <li class="skill-tag">GTKWave</li>
+            <li class="skill-tag">Git</li>
+          </ul>
+        </div>
+        
+        <div class="skill-category">
+          <h3>Currently Learning</h3>
+          <ul class="skill-list">
+            <li class="skill-tag">Advanced Microarchitecture</li>
+            <li class="skill-tag">UVM</li>
+            <li class="skill-tag">Formal Methods</li>
+            <li class="skill-tag">System-Level Simulation</li>
+            <li class="skill-tag">DevOps for Hardware</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <h2>💡 Interests</h2>
-    <ul>
-      <li>Hardware-Software Co-Design</li>
-      <li>Low-Power ASIC and SoC Design ML Workloads (RTL to GDSII)</li>
-      <li>Processor Microarchitecture and ISA Design</li>
-    </ul>
-  </section>
+    <!-- Projects Section -->
+    <section class="projects-section">
+      <h2 class="section-title">🚀 Featured Projects</h2>
+      <div class="projects-grid">
+        <a href="https://github.com/JananiPSrinivasan/project1" target="_blank" class="project-card">
+          <div class="project-title">
+            RISC-V Processor Core
+            <span class="external-link">↗</span>
+          </div>
+          <p class="project-description">
+            5-stage pipelined RISC-V processor implementation with hazard detection, forwarding unit, and branch prediction optimizations.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">SystemVerilog</span>
+            <span class="tech-tag">RISC-V</span>
+            <span class="tech-tag">Pipeline</span>
+            <span class="tech-tag">Verification</span>
+          </div>
+        </a>
 
-  <section>
-    <h2>🛠️ Skilled In</h2>
-    <ul>
-      <li>RTL Design (Verilog/SystemVerilog)</li>
-      <li>Front-end static verification (Linting, CDC, RDC, X-Propagation, FSM validation, Pipeline hazards, Memory consistency, Clock gating)</li>
-      <li>Functional & Formal Verification (Assertions, Properties)</li>
-      <li>Logic Synthesis & Static Timing Analysis (STA)</li>
-    </ul>
-  </section>
+        <a href="https://github.com/JananiPSrinivasan/project2" target="_blank" class="project-card">
+          <div class="project-title">
+            ML Accelerator SoC
+            <span class="external-link">↗</span>
+          </div>
+          <p class="project-description">
+            Custom SoC design with dedicated ML acceleration units, memory hierarchy optimization, and power management for edge AI applications.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">SoC Design</span>
+            <span class="tech-tag">ML Acceleration</span>
+            <span class="tech-tag">Low Power</span>
+            <span class="tech-tag">RTL-to-GDSII</span>
+          </div>
+        </a>
 
-  <section>
-    <h2>💻 Tools & Languages</h2>
-    <ul>
-      <li>Verilog/SystemVerilog, C/C++, MATLAB</li>
-      <li>Python (for automation, ML workflows)</li>
-      <li>Cadence (Genus, Innovus, Spectre), Synopsys Design Compiler</li>
-      <li>VS Code, ModelSim, GTKWave</li>
-      <li>Git, CMake, Make, Shell scripting</li>
-    </ul>
-  </section>
+        <a href="https://github.com/JananiPSrinivasan/project3" target="_blank" class="project-card">
+          <div class="project-title">
+            Cache Controller Design
+            <span class="external-link">↗</span>
+          </div>
+          <p class="project-description">
+            High-performance cache controller with configurable associativity, write policies, and coherency protocol implementation.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Cache Design</span>
+            <span class="tech-tag">Memory Systems</span>
+            <span class="tech-tag">Performance</span>
+            <span class="tech-tag">Verilog</span>
+          </div>
+        </a>
+      </div>
+    </section>
 
-  <section>
-    <h2>📚 Learning Now</h2>
-    <ul>
-      <li>Advanced Microarchitecture Design and Verification</li>
-      <li>UVM, Formal Methods, and Equivalence Checking</li>
-      <li>System-Level Simulation and Co-Design</li>
-      <li>DevOps and Toolchain Automation for Hardware Projects</li>
-    </ul>
-  </section>
-
-  <section class="stats">
-    <h2>📊 GitHub Stats & Contributions</h2>
-    <img src="https://github-readme-stats.vercel.app/api?username=JananiPSrinivasan&show_icons=true&theme=default" alt="GitHub Stats" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JananiPSrinivasan&layout=compact&theme=default" alt="Top Languages" />
-    <img src="https://github-readme-activity-graph.vercel.app/graph?username=JananiPSrinivasan&theme=github-light" alt="GitHub Activity Graph" />
-  </section>
-
+    <!-- GitHub Stats -->
+    <section class="stats-section">
+      <h2 class="section-title">📊 GitHub Stats & Activity</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <img src="https://github-readme-stats.vercel.app/api?username=JananiPSrinivasan&show_icons=true&theme=default&hide_border=true" alt="GitHub Stats" />
+        </div>
+        <div class="stat-card">
+          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JananiPSrinivasan&layout=compact&theme=default&hide_border=true" alt="Top Languages" />
+        </div>
+      </div>
+      <div class="stat-card" style="margin-top: 1.5rem;">
+        <img src="https://github-readme-activity-graph.vercel.app/graph?username=JananiPSrinivasan&theme=github-light&hide_border=true" alt="GitHub Activity Graph" />
+      </div>
+    </section>
+  </div>
 </body>
 </html>
