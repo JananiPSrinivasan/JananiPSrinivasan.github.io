@@ -15,7 +15,7 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      background: #f5f7fa;
       color: #1a1a1a;
       line-height: 1.6;
       font-weight: 300;
@@ -51,6 +51,7 @@
       border-radius: 6px;
       transition: all 0.2s ease;
       cursor: pointer;
+      position: relative;
     }
 
     .nav-link:hover {
@@ -60,8 +61,8 @@
 
     .nav-link.active {
       color: #3b82f6;
-      background: #eff6ff;
       font-weight: 500;
+      border-bottom: 2px solid #3b82f6;
     }
 
     .container {
@@ -181,8 +182,6 @@
       75% { transform: rotate(-10deg); }
     }
 
-
-
     .intro {
       font-size: 1.1rem;
       color: #4a4a4a;
@@ -194,6 +193,7 @@
 
     .section {
       margin-bottom: 2.5rem;
+      scroll-margin-top: 80px;
     }
 
     .section-title {
@@ -217,15 +217,8 @@
       text-align: left;
       padding: 1.5rem;
       border-radius: 12px;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-    }
-
-    .skill-section:hover {
-      background: #fafafa;
-      border-color: #e2e8f0;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid #f1f5f9;
+      background: #ffffff;
     }
 
     .skill-section h3 {
@@ -264,13 +257,17 @@
       padding-left: 1.5rem;
       margin-bottom: 2rem;
       position: relative;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 3px solid #3b82f6;
     }
 
     .experience-item::before {
       content: '';
       position: absolute;
       left: -6px;
-      top: 0;
+      top: 1.5rem;
       width: 9px;
       height: 9px;
       border-radius: 50%;
@@ -325,7 +322,7 @@
     }
 
     .project-card {
-      background: #fafafa;
+      background: #ffffff;
       border-radius: 12px;
       padding: 1.5rem;
       transition: all 0.3s ease;
@@ -339,17 +336,11 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 25px rgba(0,0,0,0.12);
       border-color: #3b82f6;
-      background: #ffffff;
     }
 
     /* Smooth scrolling */
     html {
       scroll-behavior: smooth;
-    }
-
-    /* Section scroll offset for fixed navbar */
-    .section {
-      scroll-margin-top: 80px;
     }
 
     .project-title {
@@ -400,7 +391,7 @@
     }
 
     .stat-card {
-      background: #fafafa;
+      background: #ffffff;
       border-radius: 12px;
       padding: 1rem;
       overflow: hidden;
@@ -440,6 +431,7 @@
       line-height: 1.5;
       text-align: justify;
     }
+
     @media (max-width: 768px) {
       .container {
         padding: 5rem 1rem 2rem;
@@ -479,50 +471,17 @@
         justify-content: center;
       }
     }
-
-    <script>
-      // Smooth scrolling navigation
-      function scrollToSection(sectionId) {
-        document.getElementById(sectionId).scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-
-      // Highlight active navigation based on scroll position
-      window.addEventListener('scroll', () => {
-        const sections = ['about', 'skills', 'projects', 'experience', 'stats'];
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        let current = '';
-        sections.forEach(section => {
-          const element = document.getElementById(section);
-          if (element) {
-            const rect = element.getBoundingClientRect();
-            if (rect.top <= 100 && rect.bottom >= 100) {
-              current = section;
-            }
-          }
-        });
-
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('onclick').includes(current)) {
-            link.classList.add('active');
-          }
-        });
-      });
-    </script>
   </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
-      <a class="nav-link" onclick="scrollToSection('about')">About</a>
-      <a class="nav-link" onclick="scrollToSection('skills')">Skills</a>
-      <a class="nav-link" onclick="scrollToSection('projects')">Projects</a>
-      <a class="nav-link" onclick="scrollToSection('experience')">Experience</a>
-      <a class="nav-link" onclick="scrollToSection('stats')">Stats</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#stats">Stats</a>
     </div>
   </nav>
 
@@ -608,11 +567,11 @@
       <div class="projects-grid">
         <a href="https://github.com/JananiPSrinivasan/AynchronousFIFO.git" target="_blank" class="project-card">
           <div class="project-title">
-            Design and Verification of Asynchronous FIFO buffer using System Verilog and Formal Methods
+            Asynchronous FIFO Design & Verification
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Developed a high-speed, asynchronous FIFO buffer to bridge a 50 MHz sensor and a 25 MHz processor with intermittent stalls. The design ensures reliable, lossless data transfer across mismatched clock domains by buffering incoming data, adapting to slower read speeds, and preventing overflows. This solution enables stable communication in systems where timing mismatches would otherwise lead to data loss.
+            High-speed async FIFO buffer bridging 50 MHz sensor and 25 MHz processor with intermittent stalls. Ensures reliable, lossless data transfer across mismatched clock domains using formal verification methods.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -624,11 +583,11 @@
 
         <a href="https://github.com/JananiPSrinivasan/processorDesign/tree/main/simple_processor" target="_blank" class="project-card">
           <div class="project-title">
-            RTL Design of Custom 8-bit Processor for simple ML inference
+            8-bit Processor for ML Inference
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Designed a minimal 8-bit processor architecture in Verilog to execute a trained binary perceptron model for classification tasks. Developed a Python-based training pipeline using scikit-learn and exported them as a '.hex' file for hardware simulation. Implemented ALU, control unit, instruction memory, register file, and data memory in Verilog to support custom instruction execution. Simulated full ML inference flow using Icarus Verilog and GTKWave.
+            Custom 8-bit processor architecture executing trained binary perceptron models. Features complete datapath with ALU, control unit, and memory subsystems. Includes Python training pipeline and hardware simulation flow.
           </p>
           <div class="project-tech">
             <span class="tech-tag">Verilog</span>
@@ -640,11 +599,11 @@
 
         <a href="https://github.com/JananiPSrinivasan/simpleNeuron.git" target="_blank" class="project-card">
           <div class="project-title">
-            Design and Verification of a Neuron with Pipelined Multiply and Accumulate (MAC) unit using System Verilog and Functional Methods
+            Pipelined MAC Unit Neuron Design
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            This project involves the design and verification of a neuron using SystemVerilog with a pipelined Multiply and Accumulate (MAC) unit. The neuron computes a weighted sum of three inputs, adds a bias, and applies an activation scaling factor. The architecture is modular, consisting of multiplier, adder, accumulator, and output stages. Each module was functionally verified using dedicated testbenches, ensuring correctness, signed arithmetic handling, and proper rounding behavior. The design is scalable for larger neural networks and suitable for FPGA or ASIC implementation.
+            Modular neuron design with pipelined MAC unit computing weighted sums, bias addition, and activation scaling. Features dedicated testbenches for each module with comprehensive verification coverage.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -661,6 +620,26 @@
       <h2 class="section-title">💼 Work Experience</h2>
       
       <div class="experience-item">
+        <div class="experience-title">ASIC Design Researcher</div>
+        <div class="experience-company">San Diego State University – Internet of Things Laboratory</div>
+        <div class="experience-duration">January 2025 - Present</div>
+        <div class="experience-description">
+          <ul>
+            <li>Trained the <strong>Multi30k</strong> multimodal dataset on a custom <strong>Transformer model</strong> optimized for edge inference</li>
+            <li>Developed <strong>RTL designs</strong> in <strong>SystemVerilog</strong> to map the Transformer architecture onto hardware; conducted <strong>functional simulation</strong> using <strong>ModelSim</strong></li>
+            <li>Integrated <strong>I/O peripherals</strong> with a <strong>microcontroller unit (MCU)</strong> to facilitate communication with the ASIC</li>
+            <li>Performed <strong>synthesis</strong> using <strong>Cadence Genus</strong> and conducted <strong>timing verification</strong> to ensure functional correctness and timing closure</li>
+            <li>Applied <strong>low-power design techniques</strong> and evaluated <strong>area and power trade-offs</strong> using <strong>Cadence Genus and Innovus</strong></li>
+          </ul>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://iotlab.sdsu.edu/index.php/graduate-students/" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+              <i class="fas fa-external-link-alt"></i> IoT Lab Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="experience-item">
         <div class="experience-title">Graduate Research Assistant</div>
         <div class="experience-company">San Diego State University Research Foundation</div>
         <div class="experience-duration">September 2024 - Present</div>
@@ -670,6 +649,11 @@
             <li>Performed unit testing with Google Test framework and Matlab functions for C++ and Matlab files to ensure reliable functionality</li>
             <li>Created CI/CD pipelines using GitHub Actions to automate the integration and delivery process</li>
           </ul>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://github.com/csrc-sdsu/mole" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+              <i class="fab fa-github"></i> Open Source Contribution
+            </a>
+          </div>
         </div>
       </div>
 
@@ -684,6 +668,11 @@
             <li>Conducted user research and empathy mapping for ServicePlus expansion</li>
             <li>Provided strategic recommendations for Service Plus product growth</li>
           </ul>
+          <div style="margin-top: 0.75rem;">
+            <a href="https://www.zoho.com/serviceplus/" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+              <i class="fas fa-external-link-alt"></i> Zoho ServicePlus
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -712,5 +701,39 @@
       </p>
     </footer>
   </div>
+
+  <script>
+    // Highlight active navigation based on scroll position
+    window.addEventListener('scroll', () => {
+      const sections = ['about', 'skills', 'projects', 'experience', 'stats'];
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      let current = '';
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            current = section;
+          }
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Set initial active state
+    document.addEventListener('DOMContentLoaded', () => {
+      const aboutLink = document.querySelector('a[href="#about"]');
+      if (aboutLink) {
+        aboutLink.classList.add('active');
+      }
+    });
+  </script>
 </body>
 </html>
