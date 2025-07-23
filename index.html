@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -95,7 +96,7 @@
       justify-content: center;
       color: white;
       font-size: 4rem;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       margin-bottom: 1rem;
     }
 
@@ -139,7 +140,7 @@
 
     .social-icon:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
     .location {
@@ -177,9 +178,19 @@
     }
 
     @keyframes wave {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(20deg); }
-      75% { transform: rotate(-10deg); }
+
+      0%,
+      100% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(20deg);
+      }
+
+      75% {
+        transform: rotate(-10deg);
+      }
     }
 
     .intro {
@@ -334,7 +345,7 @@
 
     .project-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
       border-color: #3b82f6;
     }
 
@@ -445,7 +456,7 @@
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
       }
-      
+
       .header {
         flex-direction: column;
         align-items: center;
@@ -457,11 +468,11 @@
         height: 150px;
         font-size: 3rem;
       }
-      
+
       .name {
         font-size: 2rem;
       }
-      
+
       .skills-container,
       .projects-grid {
         grid-template-columns: 1fr;
@@ -473,6 +484,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar">
@@ -491,7 +503,8 @@
       <div class="photo-section">
         <div class="photo-placeholder">
           <!-- Replace 'path/to/your/image.jpg' with your actual image path -->
-          <img src="images/profile-photo.jpg" alt="Janani P Srinivasan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+          <img src="images/profile-photo.jpg" alt="Janani P Srinivasan"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
         </div>
       </div>
       <div class="header-content">
@@ -508,10 +521,12 @@
           <a href="mailto:jsrinivasan4020@sdsu.edu" class="social-icon email">
             <i class="fas fa-envelope"></i>
           </a>
-          <a href="https://www.linkedin.com/in/janani-priyadharshini-srinivasan-ba26751ab/" target="_blank" class="social-icon linkedin">
+          <a href="https://www.linkedin.com/in/janani-priyadharshini-srinivasan-ba26751ab/" target="_blank"
+            class="social-icon linkedin">
             <i class="fab fa-linkedin-in"></i>
           </a>
-          <a href="https://scholar.google.com/citations?user=JB3EJp4AAAAJ&hl=en" target="_blank" class="social-icon scholar">
+          <a href="https://scholar.google.com/citations?user=JB3EJp4AAAAJ&hl=en" target="_blank"
+            class="social-icon scholar">
             <i class="fas fa-graduation-cap"></i>
           </a>
         </div>
@@ -519,7 +534,8 @@
     </header>
 
     <p class="intro">
-      SoC and ASIC design engineer for high-performance machine learning acceleration. Strong focus on RTL development, RISC-based processor architectures for SoC integration, and performance-optimized hardware implementations.
+      SoC and ASIC design engineer for high-performance machine learning acceleration. Strong focus on RTL development,
+      RISC-based processor architectures for SoC integration, and performance-optimized hardware implementations.
     </p>
 
     <!-- Skills Section -->
@@ -537,7 +553,7 @@
             <li>Synthesis and STA</li>
           </ul>
         </div>
-        
+
         <div class="skill-section">
           <h3><i class="fas fa-check-circle"></i> Verification</h3>
           <ul class="skill-list">
@@ -548,7 +564,7 @@
             <li>UVM Methodology</li>
           </ul>
         </div>
-        
+
         <div class="skill-section">
           <h3><i class="fas fa-tools"></i> Tools & Languages</h3>
           <ul class="skill-list">
@@ -572,7 +588,9 @@
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            High-speed async FIFO buffer bridging 50 MHz sensor and 25 MHz processor with intermittent stalls. Ensures reliable, lossless data transfer across mismatched clock domains using formal verification methods.
+            High-speed async FIFO buffer bridging 50 MHz sensor and 25 MHz processor with intermittent stalls. Ensures
+            reliable, lossless data transfer across mismatched clock domains. Verified using formal verification
+            methods.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -582,13 +600,16 @@
           </div>
         </a>
 
-        <a href="https://github.com/JananiPSrinivasan/processorDesign/tree/main/simple_processor" target="_blank" class="project-card">
+        <a href="https://github.com/JananiPSrinivasan/processorDesign/tree/main/simple_processor" target="_blank"
+          class="project-card">
           <div class="project-title">
             8-bit Processor for ML Inference
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Custom 8-bit processor architecture executing trained binary perceptron models. Features complete datapath with ALU, control unit, and memory subsystems. Includes Python training pipeline and hardware simulation flow.
+            Custom 8-bit processor architecture executing trained binary perceptron models. Features complete datapath
+            with ALU, control unit, and memory subsystems. Includes Python training pipeline and hardware simulation
+            flow.
           </p>
           <div class="project-tech">
             <span class="tech-tag">Verilog</span>
@@ -604,7 +625,8 @@
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Modular neuron design with pipelined MAC unit computing weighted sums, bias addition, and activation scaling. Features dedicated testbenches for each module with comprehensive verification coverage.
+            Modular neuron design with pipelined MAC unit computing weighted sums, bias addition, and activation
+            scaling. Features dedicated testbenches for each module with comprehensive verification coverage.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -619,21 +641,28 @@
     <!-- Work Experience Section -->
     <section class="section" id="experience">
       <h2 class="section-title">💼 Work Experience</h2>
-      
+
       <div class="experience-item">
         <div class="experience-title">ASIC Design Researcher</div>
         <div class="experience-company">San Diego State University – Internet of Things Laboratory</div>
         <div class="experience-duration">January 2025 - Present</div>
         <div class="experience-description">
           <ul>
-            <li>Trained the <strong>Multi30k</strong> multimodal dataset on a custom <strong>Transformer model</strong> optimized for edge inference</li>
-            <li>Developed <strong>RTL designs</strong> in <strong>SystemVerilog</strong> to map the Transformer architecture onto hardware; conducted <strong>functional simulation</strong> using <strong>ModelSim</strong></li>
-            <li>Integrated <strong>I/O peripherals</strong> with a <strong>microcontroller unit (MCU)</strong> to facilitate communication with the ASIC</li>
-            <li>Performed <strong>synthesis</strong> using <strong>Cadence Genus</strong> and conducted <strong>timing verification</strong> to ensure functional correctness and timing closure</li>
-            <li>Applied <strong>low-power design techniques</strong> and evaluated <strong>area and power trade-offs</strong> using <strong>Cadence Genus and Innovus</strong></li>
+            <li>Trained the <strong>Multi30k</strong> multimodal dataset on a custom <strong>Transformer model</strong>
+              optimized for edge inference</li>
+            <li>Developed <strong>RTL designs</strong> in <strong>SystemVerilog</strong> to map the Transformer
+              architecture onto hardware; conducted <strong>functional simulation</strong> using
+              <strong>ModelSim</strong></li>
+            <li>Integrated <strong>I/O peripherals</strong> with a <strong>microcontroller unit (MCU)</strong> to
+              facilitate communication with the ASIC</li>
+            <li>Performed <strong>synthesis</strong> using <strong>Cadence Genus</strong> and conducted <strong>timing
+                verification</strong> to ensure functional correctness and timing closure</li>
+            <li>Applied <strong>low-power design techniques</strong> and evaluated <strong>area and power
+                trade-offs</strong> using <strong>Cadence Genus and Innovus</strong></li>
           </ul>
           <div style="margin-top: 0.75rem;">
-            <a href="https://iotlab.sdsu.edu/index.php/graduate-students/" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+            <a href="https://iotlab.sdsu.edu/index.php/graduate-students/" target="_blank"
+              style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
               <i class="fas fa-external-link-alt"></i> IoT Lab Profile
             </a>
           </div>
@@ -647,11 +676,13 @@
         <div class="experience-description">
           <ul>
             <li>Converted Makefiles to CMake files to enhance the build configuration process</li>
-            <li>Performed unit testing with Google Test framework and Matlab functions for C++ and Matlab files to ensure reliable functionality</li>
+            <li>Performed unit testing with Google Test framework and Matlab functions for C++ and Matlab files to
+              ensure reliable functionality</li>
             <li>Created CI/CD pipelines using GitHub Actions to automate the integration and delivery process</li>
           </ul>
           <div style="margin-top: 0.75rem;">
-            <a href="https://github.com/csrc-sdsu/mole" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+            <a href="https://github.com/csrc-sdsu/mole" target="_blank"
+              style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
               <i class="fab fa-github"></i> Open Source Contribution
             </a>
           </div>
@@ -670,7 +701,8 @@
             <li>Provided strategic recommendations for Service Plus product growth</li>
           </ul>
           <div style="margin-top: 0.75rem;">
-            <a href="https://www.zoho.com/serviceplus/" target="_blank" style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
+            <a href="https://www.zoho.com/serviceplus/" target="_blank"
+              style="color: #3b82f6; text-decoration: none; font-size: 0.85rem;">
               <i class="fas fa-external-link-alt"></i> Zoho ServicePlus
             </a>
           </div>
@@ -683,21 +715,27 @@
       <h2 class="section-title">📊 GitHub Stats & Activity</h2>
       <div class="stats-grid">
         <div class="stat-card">
-          <img src="https://github-readme-stats.vercel.app/api?username=JananiPSrinivasan&show_icons=true&theme=default&hide_border=true" alt="GitHub Stats" />
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=JananiPSrinivasan&show_icons=true&theme=default&hide_border=true"
+            alt="GitHub Stats" />
         </div>
         <div class="stat-card">
-          <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JananiPSrinivasan&layout=compact&theme=default&hide_border=true" alt="Top Languages" />
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs/?username=JananiPSrinivasan&layout=compact&theme=default&hide_border=true"
+            alt="Top Languages" />
         </div>
       </div>
       <div class="stat-card" style="margin-top: 1.5rem;">
-        <img src="https://github-readme-activity-graph.vercel.app/graph?username=JananiPSrinivasan&theme=github-light&hide_border=true" alt="GitHub Activity Graph" />
+        <img
+          src="https://github-readme-activity-graph.vercel.app/graph?username=JananiPSrinivasan&theme=github-light&hide_border=true"
+          alt="GitHub Activity Graph" />
       </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
       <p>
-        © 2025 Janani P Srinivasan • Designed with the help of 
+        © 2025 Janani P Srinivasan • Designed with the help of
         <a href="https://claude.ai" target="_blank">Claude AI</a>
       </p>
     </footer>
@@ -708,7 +746,7 @@
     window.addEventListener('scroll', () => {
       const sections = ['about', 'skills', 'projects', 'experience', 'stats'];
       const navLinks = document.querySelectorAll('.nav-link');
-      
+
       let current = '';
       sections.forEach(section => {
         const element = document.getElementById(section);
@@ -737,4 +775,5 @@
     });
   </script>
 </body>
+
 </html>
