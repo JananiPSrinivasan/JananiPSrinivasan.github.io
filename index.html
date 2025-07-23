@@ -355,7 +355,16 @@
     <header class="header">
       <div class="photo-section">
         <div class="photo-placeholder">
-          <i class="fas fa-user"></i>
+          <!-- Replace 'path/to/your/image.jpg' with your actual image path -->
+          <img src="images/profile-photo.jpg" alt="Janani P Srinivasan" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+        </div>
+      </div>
+      <div class="header-content">
+        <h1 class="name">
+          <span class="wave">👋</span> Hi there, I'm Janani!
+        </h1>
+        <div class="specialization">
+          SoC/ASIC Design | Processor-Microarchitecture Integration
         </div>
         <div class="social-icons">
           <a href="https://github.com/JananiPSrinivasan" target="_blank" class="social-icon github">
@@ -367,18 +376,6 @@
           <a href="https://www.linkedin.com/in/janani-priyadharshini-srinivasan-ba26751ab/" target="_blank" class="social-icon linkedin">
             <i class="fab fa-linkedin-in"></i>
           </a>
-        </div>
-        <div class="location">
-          <i class="fas fa-map-marker-alt"></i>
-          California, United States
-        </div>
-      </div>
-      <div class="header-content">
-        <h1 class="name">
-          <span class="wave">👋</span> Hi there, I'm Janani!
-        </h1>
-        <div class="specialization">
-          SoC/ASIC Design | Processor-Microarchitecture Integration
         </div>
       </div>
     </header>
@@ -430,51 +427,51 @@
     <section class="projects-section">
       <h2 class="section-title">🚀 Featured Projects</h2>
       <div class="projects-grid">
-        <a href="https://github.com/JananiPSrinivasan/project1" target="_blank" class="project-card">
+        <a href="https://github.com/JananiPSrinivasan/AynchronousFIFO.git" target="_blank" class="project-card">
           <div class="project-title">
-            RISC-V Processor Core
+            Design and Verification of Asynchronous FIFO buffer using System Verilog and Formal Methods
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            5-stage pipelined RISC-V processor implementation with hazard detection, forwarding unit, and branch prediction optimizations for enhanced performance.
+            Developed a high-speed, asynchronous FIFO buffer to bridge a 50 MHz sensor and a 25 MHz processor with intermittent stalls. The design ensures reliable, lossless data transfer across mismatched clock domains by buffering incoming data, adapting to slower read speeds, and preventing overflows. This solution enables stable communication in systems where timing mismatches would otherwise lead to data loss.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
-            <span class="tech-tag">RISC-V</span>
-            <span class="tech-tag">Pipeline</span>
-            <span class="tech-tag">Verification</span>
+            <span class="tech-tag">Async FIFO</span>
+            <span class="tech-tag">Formal Methods</span>
+            <span class="tech-tag">CDC</span>
           </div>
         </a>
 
-        <a href="https://github.com/JananiPSrinivasan/project2" target="_blank" class="project-card">
+        <a href="https://github.com/JananiPSrinivasan/processorDesign/tree/main/simple_processor" target="_blank" class="project-card">
           <div class="project-title">
-            ML Accelerator SoC
+            RTL Design of Custom 8-bit Processor for simple ML inference
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Custom SoC design with dedicated ML acceleration units, memory hierarchy optimization, and power management for edge AI applications.
+            Designed a minimal 8-bit processor architecture in Verilog to execute a trained binary perceptron model for classification tasks. Developed a Python-based training pipeline using scikit-learn and exported them as a '.hex' file for hardware simulation. Implemented ALU, control unit, instruction memory, register file, and data memory in Verilog to support custom instruction execution. Simulated full ML inference flow using Icarus Verilog and GTKWave.
           </p>
           <div class="project-tech">
-            <span class="tech-tag">SoC Design</span>
-            <span class="tech-tag">ML Acceleration</span>
-            <span class="tech-tag">Low Power</span>
-            <span class="tech-tag">RTL-to-GDSII</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/JananiPSrinivasan/project3" target="_blank" class="project-card">
-          <div class="project-title">
-            Cache Controller Design
-            <span class="external-link">↗</span>
-          </div>
-          <p class="project-description">
-            High-performance cache controller with configurable associativity, write policies, and coherency protocol implementation for multi-core systems.
-          </p>
-          <div class="project-tech">
-            <span class="tech-tag">Cache Design</span>
-            <span class="tech-tag">Memory Systems</span>
-            <span class="tech-tag">Performance</span>
             <span class="tech-tag">Verilog</span>
+            <span class="tech-tag">8-bit Processor</span>
+            <span class="tech-tag">ML Inference</span>
+            <span class="tech-tag">Python</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/JananiPSrinivasan/simpleNeuron.git" target="_blank" class="project-card">
+          <div class="project-title">
+            Design and Verification of a Neuron with Pipelined Multiply and Accumulate (MAC) unit using System Verilog and Functional Methods
+            <span class="external-link">↗</span>
+          </div>
+          <p class="project-description">
+            This project involves the design and verification of a neuron using SystemVerilog with a pipelined Multiply and Accumulate (MAC) unit. The neuron computes a weighted sum of three inputs, adds a bias, and applies an activation scaling factor. The architecture is modular, consisting of multiplier, adder, accumulator, and output stages. Each module was functionally verified using dedicated testbenches, ensuring correctness, signed arithmetic handling, and proper rounding behavior. The design is scalable for larger neural networks and suitable for FPGA or ASIC implementation.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">SystemVerilog</span>
+            <span class="tech-tag">Pipelined MAC</span>
+            <span class="tech-tag">Neural Networks</span>
+            <span class="tech-tag">Verification</span>
           </div>
         </a>
       </div>
