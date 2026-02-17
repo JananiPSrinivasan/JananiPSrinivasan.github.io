@@ -186,25 +186,10 @@
       font-size: 1.2rem;
     }
 
-    .social-icon.github {
-      background: #333;
-      color: white;
-    }
-
-    .social-icon.email {
-      background: #ea4335;
-      color: white;
-    }
-
-    .social-icon.linkedin {
-      background: #0077b5;
-      color: white;
-    }
-
-    .social-icon.scholar {
-      background: #4285f4;
-      color: white;
-    }
+    .social-icon.github { background: #333; color: white; }
+    .social-icon.email { background: #ea4335; color: white; }
+    .social-icon.linkedin { background: #0077b5; color: white; }
+    .social-icon.scholar { background: #4285f4; color: white; }
 
     .social-icon:hover {
       transform: translateY(-2px);
@@ -228,9 +213,7 @@
       letter-spacing: -0.02em;
     }
 
-    .header-content {
-      flex: 1;
-    }
+    .header-content { flex: 1; }
 
     .specialization {
       font-size: 1rem;
@@ -372,22 +355,27 @@
       text-align: justify;
     }
 
-    .experience-description ul {
-      margin-top: 0.5rem;
-    }
+    .experience-description ul { margin-top: 0.5rem; }
 
     .experience-description li {
       margin-bottom: 0.3rem;
       color: var(--text-muted);
     }
 
+    /* ─── Projects ─── */
     .projects-section {
       margin-top: 4rem;
+      scroll-margin-top: 80px;
     }
 
+    /*
+     * FIX: Use a 2-column grid so all 4 cards align equally.
+     * Each card is also set to display:flex + flex-direction:column
+     * so the tech-tag row always pins to the bottom.
+     */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5rem;
       margin-top: 1.5rem;
     }
@@ -400,18 +388,14 @@
       border: 1px solid var(--border-color);
       text-decoration: none;
       color: inherit;
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
       border-color: var(--accent-blue);
-    }
-
-    /* Smooth scrolling */
-    html {
-      scroll-behavior: smooth;
     }
 
     .project-title {
@@ -424,10 +408,20 @@
       gap: 0.5rem;
     }
 
+    .project-description {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      text-align: justify;
+      flex: 1; /* pushes tech tags to the bottom */
+    }
+
     .project-tech {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
+      margin-top: auto;
     }
 
     .tech-tag {
@@ -450,9 +444,16 @@
       transition: opacity 0.2s ease;
     }
 
-    .project-card:hover .external-link {
-      opacity: 1;
+    .project-card:hover .external-link { opacity: 1; }
+
+    /* Responsive: single column on narrow screens */
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
+    html { scroll-behavior: smooth; }
 
     .stats-section {
       margin-top: 4rem;
@@ -497,22 +498,10 @@
       font-weight: 400;
     }
 
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .project-description {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      line-height: 1.5;
-      text-align: justify;
-    }
+    .footer a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
-      .container {
-        padding: 5rem 1rem 2rem;
-      }
+      .container { padding: 5rem 1rem 2rem; }
 
       .theme-toggle {
         top: 15px;
@@ -521,9 +510,7 @@
         font-size: 0.8rem;
       }
 
-      .nav-container {
-        gap: 1rem;
-      }
+      .nav-container { gap: 1rem; }
 
       .nav-link {
         font-size: 0.8rem;
@@ -542,18 +529,11 @@
         font-size: 3rem;
       }
 
-      .name {
-        font-size: 2rem;
-      }
+      .name { font-size: 2rem; }
 
-      .skills-container,
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
+      .skills-container { grid-template-columns: 1fr; }
 
-      .social-icons {
-        justify-content: center;
-      }
+      .social-icons { justify-content: center; }
     }
   </style>
 </head>
@@ -581,7 +561,6 @@
     <header class="header" id="about">
       <div class="photo-section">
         <div class="photo-placeholder">
-          <!-- Replace 'path/to/your/image.jpg' with your actual image path -->
           <img src="images/profile-photo.jpg" alt="Janani P Srinivasan"
             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
         </div>
@@ -613,7 +592,8 @@
     </header>
 
     <p class="intro">
-      SoC and ASIC design engineer for high-performance machine learning acceleration. Strong focus on RTL development RISC-based processor architectures for SoC integration and performance-optimized hardware implementations.
+      SoC and ASIC design engineer for high-performance machine learning acceleration. Strong focus on RTL development
+      RISC-based processor architectures for SoC integration and performance-optimized hardware implementations.
     </p>
 
     <!-- Skills Section -->
@@ -636,15 +616,15 @@
           <h3><i class="fas fa-check-circle"></i> Verification</h3>
           <ul class="skill-list">
             <li>Static Verification (Linting CDC RDC)</li>
-            <li>Assertions & Properties Development</li>
-            <li>Functional & Formal Verification</li>
-            <li>Coverage Analysis & Test Planning</li>
+            <li>Assertions &amp; Properties Development</li>
+            <li>Functional &amp; Formal Verification</li>
+            <li>Coverage Analysis &amp; Test Planning</li>
             <li>UVM Methodology</li>
           </ul>
         </div>
 
         <div class="skill-section">
-          <h3><i class="fas fa-tools"></i> Tools & Languages</h3>
+          <h3><i class="fas fa-tools"></i> Tools &amp; Languages</h3>
           <ul class="skill-list">
             <li>Verilog/SystemVerilog, C/C++, Python</li>
             <li>Cadence (Genus Innovus Spectre)</li>
@@ -657,19 +637,19 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section class="projects-section" id="projects">
+    <!-- Projects Section — all 4 cards inside one grid -->
+    <section class="projects-section section" id="projects">
       <h2 class="section-title">🚀 Featured Projects</h2>
       <div class="projects-grid">
+
         <a href="https://github.com/JananiPSrinivasan/AynchronousFIFO.git" target="_blank" class="project-card">
           <div class="project-title">
-            Asynchronous FIFO Design & Verification
+            Asynchronous FIFO Design &amp; Verification
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
             High-speed async FIFO buffer bridging 50 MHz sensor and 25 MHz processor with intermittent stalls. Ensures
-            reliable lossless data transfer across mismatched clock domains. Verified using formal verification
-            methods.
+            reliable lossless data transfer across mismatched clock domains. Verified using formal verification methods.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -687,8 +667,7 @@
           </div>
           <p class="project-description">
             Custom 8-bit processor architecture executing trained binary perceptron models. Features complete datapath
-            with ALU control unit and memory subsystems. Includes Python training pipeline and hardware simulation
-            flow.
+            with ALU control unit and memory subsystems. Includes Python training pipeline and hardware simulation flow.
           </p>
           <div class="project-tech">
             <span class="tech-tag">Verilog</span>
@@ -704,8 +683,8 @@
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Modular neuron design with pipelined MAC unit computing weighted sums bias addition and activation
-            scaling. Features dedicated testbenches for each module with comprehensive verification coverage.
+            Modular neuron design with pipelined MAC unit computing weighted sums, bias addition and activation scaling.
+            Features dedicated testbenches for each module with comprehensive verification coverage.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
@@ -714,27 +693,24 @@
             <span class="tech-tag">Verification</span>
           </div>
         </a>
-      </div>
-    
 
-    <a href="https://github.com/JananiPSrinivasan/SPI_Slave.git" target="_blank" class="project-card">
+        <a href="https://github.com/JananiPSrinivasan/SPI_Slave.git" target="_blank" class="project-card">
           <div class="project-title">
-            SPI Slave Implementation with  
-            SVA-Based Verification
+            SPI Slave with SVA-Based Verification
             <span class="external-link">↗</span>
           </div>
           <p class="project-description">
-            Designed and verified a SystemVerilog SPI Slave (Mode 0)  
-            supporting configurable CS polarity and  
-            mid-byte CS deassert handling, with clean single-cycle byte completion signaling.
+            Designed and verified a SystemVerilog SPI Slave (Mode 0) supporting configurable CS polarity and mid-byte
+            CS deassert handling, with clean single-cycle byte completion signaling.
           </p>
           <div class="project-tech">
             <span class="tech-tag">SystemVerilog</span>
             <span class="tech-tag">SVA</span>
             <span class="tech-tag">FSM</span>
-            <span class="tech-tag">Directed and Random Testing</span>
+            <span class="tech-tag">Directed &amp; Random Testing</span>
           </div>
         </a>
+
       </div>
     </section>
 
@@ -751,12 +727,11 @@
             <li>Trained the <strong>Multi30k</strong> multimodal dataset on a custom <strong>Transformer model</strong>
               optimized for edge inference</li>
             <li>Developed <strong>RTL designs</strong> in <strong>SystemVerilog</strong> to map the Transformer
-              architecture onto hardware and conducted <strong>functional simulation</strong> using
-              <strong>ModelSim</strong></li>
+              architecture onto hardware and conducted <strong>functional simulation</strong> using <strong>ModelSim</strong></li>
             <li>Integrated <strong>I/O peripherals</strong> with a <strong>microcontroller unit (MCU)</strong> to
               facilitate communication with the ASIC</li>
-            <li>Performed <strong>synthesis</strong> using <strong>Cadence Genus</strong> and conducted <strong>timing
-                verification</strong> to ensure functional correctness and timing closure</li>
+            <li>Performed <strong>synthesis</strong> using <strong>Cadence Genus</strong> and conducted
+              <strong>timing verification</strong> to ensure functional correctness and timing closure</li>
             <li>Applied <strong>low-power design techniques</strong> and evaluated <strong>area and power
                 trade-offs</strong> using <strong>Cadence Genus and Innovus</strong></li>
           </ul>
@@ -811,8 +786,8 @@
     </section>
 
     <!-- GitHub Stats -->
-    <section class="stats-section" id="stats">
-      <h2 class="section-title">📊 GitHub Stats & Activity</h2>
+    <section class="stats-section section" id="stats">
+      <h2 class="section-title">📊 GitHub Stats &amp; Activity</h2>
       <div class="stats-grid">
         <div class="stat-card">
           <img
@@ -842,26 +817,23 @@
   </div>
 
   <script>
-    // Dark mode functionality
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme');
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
       html.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     }
 
-    // Initialize theme
     function initTheme() {
       const savedTheme = localStorage.getItem('theme');
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = savedTheme || (systemDark ? 'dark' : 'light');
-      
       document.documentElement.setAttribute('data-theme', theme);
     }
 
-    // Highlight active navigation based on scroll position
+    initTheme();
+
     window.addEventListener('scroll', () => {
       const sections = ['about', 'skills', 'projects', 'experience', 'stats'];
       const navLinks = document.querySelectorAll('.nav-link');
@@ -877,4 +849,13 @@
         }
       });
 
-      navLinks.forEach(link =>
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
